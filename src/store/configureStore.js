@@ -5,7 +5,7 @@ import rootReducer from '../reducers';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-export default function configureStore(preloadedState) {
+export default function configureStore (preloadedState) {
   const sagaMiddleware = createSagaMiddleware({ sagaMonitor });
   const middlewares = [sagaMiddleware];
   const store = createStore(rootReducer, preloadedState, composeEnhancers(applyMiddleware(...middlewares)));

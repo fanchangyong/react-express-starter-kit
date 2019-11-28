@@ -15,12 +15,11 @@ process.on('unhandledRejection', err => {
 // Ensure environment variables are read.
 require('../config/env');
 
-
 const jest = require('jest');
 const execSync = require('child_process').execSync;
-let argv = process.argv.slice(2);
+const argv = process.argv.slice(2);
 
-function isInGitRepository() {
+function isInGitRepository () {
   try {
     execSync('git rev-parse --is-inside-work-tree', { stdio: 'ignore' });
     return true;
@@ -29,7 +28,7 @@ function isInGitRepository() {
   }
 }
 
-function isInMercurialRepository() {
+function isInMercurialRepository () {
   try {
     execSync('hg --cwd . root', { stdio: 'ignore' });
     return true;
@@ -48,6 +47,5 @@ if (
   const hasSourceControl = isInGitRepository() || isInMercurialRepository();
   argv.push(hasSourceControl ? '--watch' : '--watchAll');
 }
-
 
 jest.run(argv);

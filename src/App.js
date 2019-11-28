@@ -1,6 +1,6 @@
 import React from 'react';
 
-function App() {
+function App () {
   return (
     <h1 style={{ textAlign: 'center' }}>
       Hello React
