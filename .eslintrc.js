@@ -6,7 +6,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     'plugin:react/recommended',
-    'standard'
+    'standard',
   ],
   globals: {
     Atomics: 'readonly',
@@ -18,6 +18,11 @@ module.exports = {
     },
     ecmaVersion: 2018,
     sourceType: 'module'
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
   },
   plugins: [
     'react'
