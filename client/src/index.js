@@ -3,10 +3,8 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import configureStore from './store/configureStore';
-import rootSaga from './sagas';
 
 const store = configureStore();
-store.runSaga(rootSaga);
 
 ReactDOM.render(
   <Provider
