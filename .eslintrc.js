@@ -36,5 +36,9 @@ module.exports = {
       "exports": "always-multiline",
       "functions": "always-multiline",
     }],
+    indent: ['error', 2, {
+      MemberExpression: 'off',
+      SwitchCase: 1,
+    }],
   },
 }
