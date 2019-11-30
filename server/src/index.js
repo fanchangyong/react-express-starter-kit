@@ -1,6 +1,4 @@
-if (process.env.NODE_ENV !== 'production') {
-  require('@babel/register');
-}
+require('@babel/register');
 
 var http = require('http');
 const expressWs = require('express-ws');
@@ -12,7 +10,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
+const initDb = require('./initDb').default;
 const WebSocketServer = require('./WebSocketServer').default;
+
+initDb();
 
 var app = express();
 
