@@ -5,6 +5,7 @@ exports.up = async function (knex) {
     table.increments();
     table.string('account');
     table.string('password');
+    table.string('is_vip');
     addDefaultColumns(knex, table);
   });
 };
