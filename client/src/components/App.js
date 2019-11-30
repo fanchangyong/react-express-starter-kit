@@ -30,13 +30,10 @@ class App extends React.Component {
 
 App.propTypes = {
   sendHello: PropTypes.func,
-  user: {
-    msg: PropTypes.string,
-  },
+  user: PropTypes.object,
 };
 
 function mapStateToProps (state) {
-  console.log('state: ', state);
   return {
     user: state.user,
   };
