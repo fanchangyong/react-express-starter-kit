@@ -1,4 +1,10 @@
-const path = require('path');
+import {
+  styleLoader,
+  cssLoader,
+  postcssLoader,
+  stylusLoader,
+  babelLoader,
+} from './loaders';
 const paths = require('./paths');
 
 module.exports = {
@@ -14,10 +20,15 @@ module.exports = {
       {
         test: [/\.(js|jsx|mjs)$/],
         include: paths.appSrc,
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: true,
-        },
+        use: [babelLoader],
+      },
+      {
+        test: /\.css$/,
+        use: [styleLoader, cssLoader, postcssLoader],
+      },
+      {
+        test: /\.cm\.styl$/,
+        use: [styleLoader, cssLoader, postcssLoader, stylusLoader],
       },
     ],
   },

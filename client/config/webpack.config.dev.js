@@ -1,4 +1,10 @@
-const path = require('path');
+const {
+  styleLoader,
+  cssLoader,
+  postcssLoader,
+  stylusLoader,
+  babelLoader,
+} = require('./loaders');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const paths = require('./paths');
 
@@ -17,10 +23,15 @@ module.exports = {
       {
         test: [/\.(js|jsx|mjs)$/],
         include: paths.appSrc,
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: false,
-        },
+        use: [babelLoader],
+      },
+      {
+        test: /\.css$/,
+        use: [styleLoader, cssLoader, postcssLoader],
+      },
+      {
+        test: /\.cm\.styl$/,
+        use: [styleLoader, cssLoader, postcssLoader, stylusLoader],
       },
     ],
   },
@@ -32,9 +43,9 @@ module.exports = {
   ],
   devServer: {
     proxy: {
-      "/api": {
-        "target": "http://localhost:3001",
-      }
-    }
+      '/api': {
+        target: 'http://localhost:3001',
+      },
+    },
   },
 };
