@@ -1,11 +1,12 @@
-import {
-  styleLoader,
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+
+const {
   cssLoaderWithModules,
   cssLoaderWithoutModules,
   postcssLoader,
   stylusLoader,
   babelLoader,
-} from './loaders';
+} = require('./loaders');
 const paths = require('./paths');
 
 module.exports = {
@@ -14,7 +15,7 @@ module.exports = {
   devtool: 'inline-source-map',
   output: {
     path: paths.appBuild,
-    filename: '[name].bundle.js',
+    filename: 'index.bundle.js',
   },
   module: {
     rules: [
@@ -25,15 +26,16 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [styleLoader, cssLoaderWithoutModules, postcssLoader],
+        use: [MiniCssExtractPlugin.loader, cssLoaderWithoutModules, postcssLoader],
       },
       {
         test: /\.cm\.styl$/,
-        use: [styleLoader, cssLoaderWithModules, postcssLoader, stylusLoader],
+        use: [MiniCssExtractPlugin.loader, cssLoaderWithModules, postcssLoader, stylusLoader],
       },
     ],
   },
   plugins: [
+    new MiniCssExtractPlugin(),
   ],
   devServer: {
     contentBase: './build',
