@@ -6,7 +6,6 @@ const initialState = {
 };
 
 const userReducer = produce((draft = initialState, action) => {
-  console.log('### user reducer');
   switch (action.type) {
     case types.UPDATE_HELLO_MSG: {
       draft.msg = action.payload;

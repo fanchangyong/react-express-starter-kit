@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 import { sendHello } from '../actions/user';
 
 class App extends React.Component {
-  constructor () {
+  constructor() {
     super();
     this.onClickBtn = this.onClickBtn.bind(this);
   }
 
-  onClickBtn () {
+  onClickBtn() {
     this.props.sendHello('hello server');
   }
 
-  render () {
+  render() {
     return (
       <div>
         <h1 style={{ textAlign: 'center' }}>
@@ -33,7 +33,7 @@ App.propTypes = {
   user: PropTypes.object,
 };
 
-function mapStateToProps (state) {
+function mapStateToProps(state) {
   return {
     user: state.user,
   };
