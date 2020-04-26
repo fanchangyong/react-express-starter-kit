@@ -43,10 +43,10 @@ module.exports = {
     }),
   ],
   devServer: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3001',
-      },
-    },
+    index: '',
+    proxy: [{
+      context: ['/api', '/images', '/'],
+      target: 'http://localhost:8001',
+    }],
   },
 };

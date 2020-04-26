@@ -1,5 +1,22 @@
-extends layout
+doctype html
+html(lang='zh-CN')
+  head
+    title= title
+    meta(charset='UTF-8')
+    meta(name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0")
+    meta(name="keywords" content="")
+    meta(name="description" content="")
+    link(rel="shortcut icon" href="/favicon.ico")
 
-block content
-  #root
-  script(src=publicPath + '/js/index.bundle.js')
+    if process.env.NODE_ENV === 'production'
+      link(
+        rel="stylesheet"
+        href=publicPath + '/css/main.css'
+      )
+
+  body
+    #root
+    if process.env.NODE_ENV === 'development'
+      script(src="/index.bundle.js")
+    else
+      script(src=publicPath + '/js/index.bundle.js')

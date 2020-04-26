@@ -39,7 +39,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(path.resolve(__dirname, '../'), 'public')));
 
-app.locals.publicPath = 'http://localhost:3000/static';
+app.locals.publicPath = '/';
 
 app.use('/', indexRouter);
 
