@@ -17,7 +17,7 @@
     "morgan": "~1.9.1",
     "mysql": "^2.17.1",
     "objection": "^1.6.11",
-    "pug": "2.0.0-beta11",
+    "pug": "3.0.1",
     "ws": "^7.2.0"
   },
   "devDependencies": {
